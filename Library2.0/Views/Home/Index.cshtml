@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="row">
+    <div class="col-sm-4">
+        <div class="card">
+
+            <div class="card-block">
+                <h3 class="card-title">Catalogs</h3>
+                <p class="card-text">Manage <strong>@ViewBag.NumberOfAssets</strong> Library Assets</p>
+                <a asp-controller="Catalogs" asp-action="Index" class="btn btn-block bg-info">VIEW CATALOGS</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="card">
+            <div class="card-block">
+                <h3 class="card-title">Patrons</h3>
+                <p class="card-text">Total Patrons <strong>@ViewBag.NumberOfPatrons</strong></p>
+                <a asp-controller="Patrons" asp-action="Index" class="btn btn-block bg-info">VIEW PATRONS</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="card">
+            <div class="card-block">
+                <h3 class="card-title">Branches</h3>
+                <p class="card-text">You have <strong>@ViewBag.NumberOfBranches</strong> Branches</p>
+                <a asp-controller="Branches" asp-action="Index" class="btn btn-block bg-info">VIEW BRANCHES</a>
+            </div>
+        </div>
+    </div>
+</div>

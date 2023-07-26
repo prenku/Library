@@ -1,0 +1,74 @@
+﻿@model Library.ViewModels.Catalogs.AddAssetViewModel
+
+@{
+    ViewData["Title"] = "AddAsset";
+}
+<h2>AddAsset</h2>
+<h4>AddAssetViewModel</h4>
+<hr />
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-4 col-md-push-1">
+            <form asp-action="AddAsset">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Title" class="control-label"></label>
+                    <input asp-for="Title" class="form-control" autofocus />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Year" class="control-label"></label>
+                    <input asp-for="Year" class="form-control" />
+                    <span asp-validation-for="Year" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AssetType" class="control-label"></label>
+                    <select asp-for="Id" name="AssetType"
+                            class="form-control"
+                            asp-items="@Model.AssetType">
+                        <option selected="selected">Select Asset Type</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="HomeBranch" class="control-label"></label>
+                    <select asp-for="Id" name="HomeBranch"
+                            class="form-control"
+                            asp-items="@Model.HomeBranch"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Status" class="control-label"></label>
+                    <select asp-for="Id" name="Status"
+                            class="form-control"
+                            asp-items="@Model.Status"></select>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            <input asp-for="BestSeller" /> @*@Html.DisplayNameFor(model => model.BestSeller)*@
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Cost" class="control-label"></label>
+                    <input asp-for="Cost" required="required" class="form-control" />
+                    <span asp-validation-for="Cost" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Quantity" class="control-label"></label>
+                    <input asp-for="Quantity" class="form-control" />
+                    <span asp-validation-for="Quantity" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

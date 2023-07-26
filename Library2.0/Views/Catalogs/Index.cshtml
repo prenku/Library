@@ -1,0 +1,65 @@
+﻿@model Library.ViewModels.Catalogs.IndexViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="AddAsset">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                   Title
+                </th>
+                <th>
+                    Year
+                </th>
+                <th>
+                   BestSeller
+                </th>
+                <th>
+                    Cost
+                </th>
+                <th>
+                   Quantity
+                </th>
+            <th>AssetType</th>
+            <th>Status</th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.LibraryAsset) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BestSeller)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>@Html.DisplayFor(modelItem=> item.AssetType.Name)</td>
+            <td>@Html.DisplayFor(modelItem => item.Status.Name)</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

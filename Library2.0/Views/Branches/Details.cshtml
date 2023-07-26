@@ -1,0 +1,64 @@
+﻿@model Library.Models.Branch
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Estabilished)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Location)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Telephone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Image)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Estabilished)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Telephone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Image)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@Model.BranchID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@Model.BranchID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@Model.BranchID">Delete</a>
+            </td>
+        </tr>
+
+    </tbody>
+</table>
